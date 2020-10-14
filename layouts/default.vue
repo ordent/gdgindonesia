@@ -2,9 +2,11 @@
   <div class="is-layout-wrapper">
     <div class="header fixed w-full t-0">
       <nav class="flex items-center justify-between flex-wrap bg-white p-6 shadow">
-        <div class="flex items-center flex-shrink-0 text-black mr-6">
-          <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z" /></svg>
-          <span class=" text-xl tracking-tight">DevFest Indonesia</span>
+        <div class="flex items-center flex-shrink-0 text-black mr-16">
+          <nuxt-link class="block flex flex-row" to="/">
+            <img src="~/assets/images/logo.png" class="w-16 mr-4" alt="">
+            <span class=" text-xl tracking-tight">DevFest Indonesia</span>
+          </nuxt-link>
         </div>
         <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-gray-600 border-teal-400 hover:text-black hover:border-white" @click="headerActive = !headerActive">
@@ -23,7 +25,7 @@
         </div>
       </nav>
     </div>
-    <div class="pt-16">
+    <div class="pt-20">
       <Nuxt />
     </div>
     <div class="footer bg-gray-300 mt-8">
