@@ -29,8 +29,11 @@ collections:
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
       - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Afiliasi', name: 'afiliation', widget: 'string' }
       - { label: 'Jabatan', name: 'title', widget: 'string' }
       - { label: 'Topik', name: 'topics', widget: 'string' }
+      - { label: 'Twitter', name: 'twitter', widget: 'string' }
+      - { label: 'Linkedin', name: 'linkedin', widget: 'string' }
       - { label: 'Tanggal & Jam', name: 'date', widget: 'datetime' }
       - { label: 'City Base', name: 'cities', widget: 'select', options: [
         "GDG Bandung", "GDG Jakarta", "GDG Surabaya", "GDG Bali", "GDG Makassar", "GDG Depok", "GDG Bogor", "GDG Yogyakarta", "GDG Semarang" ,"GDG Cloud Bandung", "GDG Cloud Jakarta", "GDG Cloud Surabaya"

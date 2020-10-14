@@ -4,7 +4,7 @@
       <nav class="flex items-center justify-between flex-wrap bg-white p-6 shadow">
         <div class="flex items-center flex-shrink-0 text-black mr-16">
           <nuxt-link class="block flex flex-row" to="/">
-            <img src="~/assets/images/logo.png" class="w-16 mr-4" alt="">
+            <img src="~/assets/images/logo.png" class="w-16 h-8 mr-4" alt="">
             <span class=" text-xl tracking-tight">DevFest Indonesia</span>
           </nuxt-link>
         </div>
