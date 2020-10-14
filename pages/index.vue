@@ -7,13 +7,13 @@
             DevFest Indonesia 2020
           </h1>
           <h2 class="text-xl my-4">
-            <calendar-icon class="w-4" /> October 16-18, 2020 |  <online-icon class="w-4" /> Online
+            <calendar-icon class="w-4" /> October 15-18, 2020 |  <online-icon class="w-4" /> Online
           </h2>
           <p class="mb-4">
             The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
           </p>
           <p class="mb-4">
-            DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 16-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
+            DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
           </p>
           <button class="btn bg-blue-600 text-white py-2 px-8 border-none rounded">
             Register
