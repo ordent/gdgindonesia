@@ -142,12 +142,12 @@
 </template>
 
 <script>
-import Countdown from '~/components/Countdown'
+// import Countdown from '~/components/Countdown'
 import CalendarIcon from '~/assets/icons/solid/calendar.svg?inline'
 import OnlineIcon from '~/assets/icons/solid/status-online.svg?inline'
 export default {
   components: {
-    Countdown,
+    // Countdown,
     CalendarIcon,
     OnlineIcon
   },
@@ -182,7 +182,9 @@ export default {
     showEmbed () {
       if (this.player) {
         const liveDate = Math.trunc((new Date(this.player.date)).getTime() / 1000)
-        return ((Math.trunc((this.target - this.now) / 60 / 60) % 24) * 60) + Math.trunc((liveDate - this.now) / 60) % 60 <= 10
+        const hourMinutes = ((Math.trunc((this.target - this.now) / 60 / 60) % 24) * 60)
+        const minutes = Math.trunc((liveDate - this.now) / 60) % 60
+        return hourMinutes + minutes <= 10
       }
       return false
     }
