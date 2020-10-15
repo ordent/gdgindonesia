@@ -21,6 +21,9 @@
             <nuxt-link to="/schedules" href="#responsive-header" class="block mt-4 text-md font-semibold lg:inline-block lg:mt-0 text-gray-600 hover:text-blue-400 mr-4">
               Schedules
             </nuxt-link>
+            <nuxt-link to="/speakers" href="#responsive-header" class="block mt-4 text-md font-semibold lg:inline-block lg:mt-0 text-gray-600 hover:text-blue-400 mr-4">
+              Speakers
+            </nuxt-link>
           </div>
         </div>
       </nav>
