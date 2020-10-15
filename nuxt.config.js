@@ -4,11 +4,17 @@ export default {
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: 'Devfest Indonesia 2020',
+    title: 'DevFest Indonesia 2020 | GDG Indonesia',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020? DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.' },
+      { hid: 'og:image', name: 'og:image', property: 'og:image', content: 'https://developers.google.com/community/gdg/images/stories/devfest-logo_1440.jpg' },
+      { hid: 'og:url', name: 'og:url', property: 'og:url', content: 'https://devfestindonesia.com' },
+      { hid: 'og:type', name: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:title', name: 'og:title', property: 'og:title', content: 'DevFest Indonesia 2020 | GDG Indonesia' },
+      { hid: 'og:site_name', name: 'og:site_name', property: 'og:site_name', content: 'DevFest Indonesia 2020 | GDG Indonesia' },
+      { hid: 'og:description', name: 'og:description', property: 'og:description', content: 'The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020? DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
