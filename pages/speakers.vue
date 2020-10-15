@@ -3,7 +3,7 @@
     <div class="container mt-8 flex flex-row flex-wrap">
       <div v-for="(item, index) in items" :key="index" class="w-1/4 p-4">
         <div class="border border-grey-400 p-4">
-          <h2 class="text-center text-lg font-semibold mb-4">
+          <h2 class="text-center text-lg font-semibold mb-4 cities">
             {{ item.cities }} Speakers
           </h2>
           <div class="image-container w-56 h-56 mx-auto flex justify-center items-center mb-4">
@@ -15,7 +15,7 @@
           <h2 class="text-center text-xl">
             {{ item.afiliation }}
           </h2>
-          <h3 class="text-center">
+          <h3 class="text-center title">
             {{ item.title }}
           </h3>
           <div class="control-container flex flex-row justify-center items-center mt-4">
@@ -48,3 +48,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.cities {
+  height: 3.4rem;
+}
+.title {
+  height: 4rem;
+}
+</style>
