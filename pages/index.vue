@@ -1,39 +1,48 @@
 <template>
   <div class="is-page-wrapper">
     <div class="container">
-      <section class="featured flex justify-between flex-col mb-4 md:flex-row items-center ">
-        <div class="section-left px-4 order-last w-full md:w-2/5">
-          <h1 class="text-3xl font-bold">
-            DevFest Indonesia 2020
-          </h1>
-          <h2 class="text-xl my-4">
-            <calendar-icon class="w-4" /> October 15-18, 2020 |  <online-icon class="w-4" /> Online
-          </h2>
-          <p class="mb-4">
-            The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
-          </p>
-          <p class="mb-4">
-            DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
-          </p>
-          <button class="btn bg-blue-600 text-white py-2 px-8 border-none rounded">
-            Register
-          </button>
-        </div>
-        <div class="section-right-and-top px-4 w-full md:order-last md:w-3/5 ">
-          <img src="https://developers.google.com/community/gdg/images/stories/devfest-logo_1440.jpg" alt="" class="w-full">
+      <section class="w-full mb-32 mt-16">
+        <div class="container">
+          <div class="flex justify-between flex-col lg:flex-row items-center w-full md:w-3/4 mx-auto">
+            <div class="section-left px-4 order-last flex-1 event-info">
+              <h1 class="text-3xl font-bold">
+                DevFest Indonesia 2020
+              </h1>
+              <h2 class="text-xl my-4">
+                <calendar-icon class="w-4" /> October 15-18, 2020 |  <online-icon class="w-4" /> Online
+              </h2>
+              <p class="mb-4">
+                The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
+              </p>
+              <p class="mb-4">
+                DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
+              </p>
+              <button class="btn bg-blue-600 text-white py-2 px-8 border-none rounded">
+                Register
+              </button>
+            </div>
+            <div class="section-right-and-top px-4 lg:order-last flex-1">
+              <img src="https://developers.google.com/community/gdg/images/stories/devfest-logo_1440.jpg" alt="" class="w-full">
+            </div>
+          </div>
         </div>
       </section>
       <section v-if="player" class="w-full mb-32">
         <div class="container">
-          <h1 class="text-3xl font-bold text-center mb-16">
+          <h1 class="text-3xl font-bold text-center mb-16 md:w-3/4 mx-auto">
             {{ player.name }}
           </h1>
           <iframe
+            v-if="showEmbed"
             class="w-full md:w-3/4 mx-auto video-embed"
             :src="`https://www.youtube.com/embed/${player.embed}`"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+          />
+          <countdown
+            v-else
+            :date="`${player.date}`"
           />
         </div>
       </section>
@@ -134,12 +143,26 @@
 </template>
 
 <script>
+import Countdown from '~/components/Countdown'
 export default {
+  components: {
+    Countdown
+  },
   async asyncData ({ $content }) {
     const players = await $content('channel').fetch()
     return {
       players
     }
+  },
+  data () {
+    return {
+      now: Math.trunc((new Date()).getTime() / 1000)
+    }
+  },
+  mounted () {
+    window.setInterval(() => {
+      this.now = Math.trunc((new Date()).getTime() / 1000)
+    }, 1000)
   },
   computed: {
     player () {
@@ -151,11 +174,15 @@ export default {
         item.embed = item.url.split('v=')[1]
         return item
       }
-      return ''
+      return null
+    },
+    showEmbed () {
+      if (this.player) {
+        const liveDate = Math.trunc((new Date(this.player.date)).getTime() / 1000)
+        return ((Math.trunc((this.target - this.now) / 60 / 60) % 24) * 60) + Math.trunc((liveDate - this.now) / 60) % 60 <= 10
+      }
+      return false
     }
-  },
-  mounted () {
-
   },
   head () {
     return {
@@ -166,6 +193,9 @@ export default {
 </script>
 
 <style scoped>
+.event-info {
+  text-align: justify;
+}
 .video-embed{
   min-height: 320px;
 }
