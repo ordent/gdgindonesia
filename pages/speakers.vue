@@ -1,3 +1,48 @@
 <template>
-  <div class="is-page-wrapper" />
+  <div class="is-page-wrapper">
+    <div class="container mt-8">
+      <div v-for="(item, index) in items" :key="index" class="border border-grey-400 w-1/4 p-4">
+        <h2 class="text-center text-lg font-semibold mb-4">
+          {{ item.cities }} Speakers
+        </h2>
+        <div class="image-container w-56 h-56 mx-auto">
+          <img :src="item.image" alt="" class="w-full mx-auto rounded-full">
+        </div>
+        <h1 class="text-center font-bold text-2xl">
+          {{ item.name }}
+        </h1>
+        <h2 class="text-center text-xl">
+          {{ item.afiliation }}
+        </h2>
+        <h3 class="text-center">
+          {{ item.title }}
+        </h3>
+        <div class="control-container flex flex-row justify-center items-center mt-4">
+          <nuxt-link class="mr-8 inline-block border border-grey-400 w-12 h-12 rounded-full flex justify-center items-center" :to="item.twitter">
+            <twitter-icon class="w-1/2 h-auto" />
+          </nuxt-link>
+          <nuxt-link class="inline-block border border-grey-400 w-12 h-12 rounded-full flex justify-center items-center" :to="item.linkedin">
+            <linkedin-icon class="w-1/2 h-auto" />
+          </nuxt-link>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script>
+import TwitterIcon from '~/assets/icons/twitter-black-shape.svg?inline'
+import LinkedinIcon from '~/assets/icons/linkedin-logo.svg?inline'
+export default {
+  components: {
+    TwitterIcon,
+    LinkedinIcon
+  },
+  async asyncData ({ $content }) {
+    const items = await $content('speakers').fetch()
+    return {
+      items
+    }
+  }
+}
+</script>
