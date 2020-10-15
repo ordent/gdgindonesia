@@ -82,6 +82,14 @@ export default {
   margin: 10px;
   text-align: center;
 }
+@media(min-width: 768px){
+  .text {
+    font-size: 18px;
+  }
+  .digit {
+    font-size: 96px;
+  }
+}
 @media(min-width: 1024px){
   .text {
     font-size: 40px;
