@@ -33,16 +33,17 @@
             {{ player.name }}
           </h1>
           <iframe
+            v-if="showEmbed"
             class="w-full md:w-3/4 mx-auto video-embed"
             :src="`https://www.youtube.com/embed/${player.embed}`"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           />
-          <!-- <countdown
+          <countdown
             v-else
             :date="`${player.date}`"
-          /> -->
+          />
         </div>
       </section>
       <section class="flex flex-col items-center justify-between mb-4 md:flex-row mb-32">
@@ -142,12 +143,12 @@
 </template>
 
 <script>
-// import Countdown from '~/components/Countdown'
+import Countdown from '~/components/Countdown'
 import CalendarIcon from '~/assets/icons/solid/calendar.svg?inline'
 import OnlineIcon from '~/assets/icons/solid/status-online.svg?inline'
 export default {
   components: {
-    // Countdown,
+    Countdown,
     CalendarIcon,
     OnlineIcon
   },
@@ -182,7 +183,7 @@ export default {
     showEmbed () {
       if (this.player) {
         const liveDate = Math.trunc((new Date(this.player.date)).getTime() / 1000)
-        const hourMinutes = ((Math.trunc((this.target - this.now) / 60 / 60) % 24) * 60)
+        const hourMinutes = ((Math.trunc((liveDate - this.now) / 60 / 60) % 24) * 60)
         const minutes = Math.trunc((liveDate - this.now) / 60) % 60
         return hourMinutes + minutes <= 10
       }
