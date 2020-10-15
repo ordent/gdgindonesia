@@ -1,7 +1,7 @@
 <template>
   <div class="is-page-wrapper">
     <div class="container">
-      <section class="featured flex justify-between flex-col mb-8 md:flex-row items-center ">
+      <section class="featured flex justify-between flex-col mb-4 md:flex-row items-center ">
         <div class="section-left px-4 order-last w-full md:w-2/5">
           <h1 class="text-3xl font-bold">
             DevFest Indonesia 2020
@@ -23,7 +23,21 @@
           <img src="https://developers.google.com/community/gdg/images/stories/devfest-logo_1440.jpg" alt="" class="w-full">
         </div>
       </section>
-      <section class="flex flex-col items-center justify-between mb-4 md:flex-row">
+      <section v-if="player" class="w-full mb-32">
+        <div class="container">
+          <h1 class="text-3xl font-bold text-center mb-16">
+            {{ player.name }}
+          </h1>
+          <iframe
+            class="w-full md:w-3/4 mx-auto video-embed"
+            :src="`https://www.youtube.com/embed/${player.embed}`"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </div>
+      </section>
+      <section class="flex flex-col items-center justify-between mb-4 md:flex-row mb-32">
         <section class="section px-4 mb-4 w-full md:w-2/3">
           <iframe
             class="w-full"
@@ -82,15 +96,15 @@
         </div>
       </section> -->
       <section class="flex flex-col md:flex-row">
-        <div class="w-1/5 p-4">
+        <div class="w-full md:w-1/5 p-4">
           <h1 class="text-2xl mb-4">
             DevFest Moments
           </h1>
           <p>The DevFest is powered by a shared belief that when developers come together to exchange ideas, amazing things can happen! And here are our community trails having tons of amazing people, sessions, knowledge and just that spirit.</p>
         </div>
-        <div class="w-4/5 p-4 flex flex-row flex-wrap">
+        <div class="w-full md:w-4/5 p-4 flex flex-row flex-wrap">
           <iframe
-            class="w-1/2"
+            class="w-full md:w-1/2"
             height="315"
             src="https://www.youtube.com/embed/7BqKlQc6-Qc"
             frameborder="0"
@@ -98,7 +112,7 @@
             allowfullscreen
           />
           <iframe
-            class="w-1/2"
+            class="w-full md:w-1/2"
             height="315"
             src="https://www.youtube.com/embed/dTwbAhRTl7o"
             frameborder="0"
@@ -106,7 +120,7 @@
             allowfullscreen
           />
           <iframe
-            class="w-1/2"
+            class="w-full md:w-1/2"
             height="315"
             src="https://www.youtube.com/embed/behRbX0zJxI"
             frameborder="0"
@@ -121,6 +135,28 @@
 
 <script>
 export default {
+  async asyncData ({ $content }) {
+    const players = await $content('channel').fetch()
+    return {
+      players
+    }
+  },
+  computed: {
+    player () {
+      if (this.players) {
+        const item = this.players.find((e) => {
+          const date = new Date(e.date)
+          return date.getDate() === new Date().getDate()
+        })
+        item.embed = item.url.split('v=')[1]
+        return item
+      }
+      return ''
+    }
+  },
+  mounted () {
+
+  },
   head () {
     return {
       script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }]
@@ -128,3 +164,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.video-embed{
+  min-height: 320px;
+}
+@media(min-width: 767px){
+  .video-embed{
+    min-height: 640px;
+  }
+}
+</style>
