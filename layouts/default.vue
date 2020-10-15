@@ -28,7 +28,7 @@
         </div>
       </nav>
     </div>
-    <div class="pt-20">
+    <div class="pt-20 min-h-screen">
       <Nuxt />
     </div>
     <div class="footer bg-gray-300 mt-8">
