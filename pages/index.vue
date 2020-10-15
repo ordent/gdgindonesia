@@ -144,9 +144,13 @@
 
 <script>
 import Countdown from '~/components/Countdown'
+import CalendarIcon from '~/assets/icons/solid/calendar.svg?inline'
+import OnlineIcon from '~/assets/icons/solid/status-online.svg?inline'
 export default {
   components: {
-    Countdown
+    Countdown,
+    CalendarIcon,
+    OnlineIcon
   },
   async asyncData ({ $content }) {
     const players = await $content('channel').fetch()
