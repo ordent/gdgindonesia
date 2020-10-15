@@ -55,4 +55,4 @@ collections:
       - { label: 'Date', name: 'date', widget: 'date', required: false}
       - { label: 'Start', name: 'start', widget: 'datetime', required: false}
       - { label: 'End', name: 'end', widget: 'datetime', required: false}
-      - { label: 'Speakers', name: 'speakers', widget: 'relation', collection: "speakers", value_field: "slug", search_fields: ['name', 'cities'], display_fields: ['name', 'cities'] }
+      - { label: 'Speakers', name: 'speakers', widget: 'relation', collection: "speakers", value_field: "name", search_fields: ['name', 'cities'], display_fields: ['name', 'cities'], multiple: true }
