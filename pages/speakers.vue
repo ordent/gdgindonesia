@@ -19,10 +19,10 @@
             {{ item.title }}
           </h3>
           <div class="control-container flex flex-row justify-center items-center mt-4">
-            <nuxt-link class="mr-8 inline-block border border-grey-400 w-12 h-12 rounded-full flex justify-center items-center" :to="item.twitter">
+            <nuxt-link v-if="item.twitter" class="mr-8 inline-block border border-grey-400 w-12 h-12 rounded-full flex justify-center items-center" :to="item.twitter">
               <twitter-icon class="w-1/2 h-auto" />
             </nuxt-link>
-            <nuxt-link class="inline-block border border-grey-400 w-12 h-12 rounded-full flex justify-center items-center" :to="item.linkedin">
+            <nuxt-link v-if="item.linkedin" class="inline-block border border-grey-400 w-12 h-12 rounded-full flex justify-center items-center" :to="item.linkedin">
               <linkedin-icon class="w-1/2 h-auto" />
             </nuxt-link>
           </div>
