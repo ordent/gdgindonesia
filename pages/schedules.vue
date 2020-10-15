@@ -43,22 +43,47 @@
       <div class="content mt-8">
         <div v-if="page === 15" class="content-15">
           <schedule-item v-for="(item, index) in schedules.OCT15" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT15.length - 1">
-            <pre>{{ item.content.$t }}</pre>
+            <h1 class="font-semibold">
+              {{ item.title }}
+            </h1>
+            <p>{{ item.description }}</p>
+            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
+              {{ i }}
+            </div>
           </schedule-item>
         </div>
         <div v-if="page === 16" class="content-16">
+          <!-- {{ schedules }} -->
           <schedule-item v-for="(item, index) in schedules.OCT16" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT16.length - 1">
-            <pre>{{ item.content.$t }}</pre>
+            <h1 class="font-semibold">
+              {{ item.title }}
+            </h1>
+            <p>{{ item.description }}</p>
+            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
+              {{ i }}
+            </div>
           </schedule-item>
         </div>
         <div v-if="page === 17" class="content-17">
           <schedule-item v-for="(item, index) in schedules.OCT17" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT17.length - 1">
-            <pre>{{ item.content.$t }}</pre>
+            <h1 class="font-semibold">
+              {{ item.title }}
+            </h1>
+            <p>{{ item.description }}</p>
+            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
+              {{ i }}
+            </div>
           </schedule-item>
         </div>
         <div v-if="page === 18" class="content-18">
           <schedule-item v-for="(item, index) in schedules.OCT18" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT18.length - 1">
-            <pre>{{ item.content.$t }}</pre>
+            <h1 class="font-semibold">
+              {{ item.title }}
+            </h1>
+            <p>{{ item.description }}</p>
+            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
+              {{ i }}
+            </div>
           </schedule-item>
         </div>
       </div>
@@ -67,21 +92,68 @@
 </template>
 
 <script>
+import ScheduleItem from '~/components/ScheduleItem.vue'
 export default {
+  components: {
+    ScheduleItem
+  },
+  async asyncData ({ $content }) {
+    const items = await $content('schedules').fetch()
+    const schedules = {}
+    schedules.OCT15 = items.filter((e) => {
+      const date = new Date(e.date).getDate()
+      return date === 15
+    })
+    schedules.OCT16 = items.filter((e) => {
+      const date = new Date(e.date).getDate()
+      return date === 16
+    })
+    schedules.OCT17 = items.filter((e) => {
+      const date = new Date(e.date).getDate()
+      return date === 17
+    })
+    schedules.OCT18 = items.filter((e) => {
+      const date = new Date(e.date).getDate()
+      return date === 18
+    })
+    schedules.OCT15 = schedules.OCT15.map((e) => {
+      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      return e
+    })
+    schedules.OCT16 = schedules.OCT16.map((e) => {
+      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      return e
+    })
+    schedules.OCT17 = schedules.OCT17.map((e) => {
+      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      return e
+    })
+    schedules.OCT18 = schedules.OCT18.map((e) => {
+      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      return e
+    })
+    return {
+      schedules
+    }
+  },
   data () {
     return {
       page: 15
     }
   },
   computed: {
-    schedules () {
-      return this.$store.state.schedules.collections
-    }
+    // schedules () {
+    //   return this.$store.state.schedules.collections
+    // }
   },
   mounted () {
-    if (process.browser) {
-      this.$store.dispatch('schedules/getCollections')
-    }
+    // if (process.browser) {
+    //   this.$store.dispatch('schedules/getCollections')
+    // }
   }
 }
 </script>

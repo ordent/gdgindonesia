@@ -23,7 +23,7 @@ collections:
     format: 'json'
     folder: 'content/speakers'
     create: true
-    slug: '{{slug}}'
+    slug: '{{name}}-{{cities}}'
     editor:
       preview: false
     fields:
