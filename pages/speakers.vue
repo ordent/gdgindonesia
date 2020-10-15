@@ -1,7 +1,7 @@
 <template>
   <div class="is-page-wrapper">
-    <div class="container mt-8 flex flex-row flex-wrap">
-      <div v-for="(item, index) in items" :key="index" class="w-1/4 p-4">
+    <div class="container mt-8 flex flex-col lg:flex-row flex-wrap">
+      <div v-for="(item, index) in items" :key="index" class="w-full lg:w-1/3 p-4">
         <div class="border border-grey-400 p-4">
           <h2 class="text-center text-lg font-semibold mb-4 cities">
             {{ item.cities }} Speakers
