@@ -7,7 +7,7 @@
             {{ item.cities }} Speakers
           </h2>
           <div class="image-container w-56 h-56 mx-auto flex justify-center items-center mb-4">
-            <img :src="item.image" alt="" class="w-full mx-auto rounded-full">
+            <img :src="item.image" alt="" class="w-full mx-auto rounded-full avatar">
           </div>
           <h1 class="text-center font-bold text-2xl">
             {{ item.name }}
@@ -52,6 +52,10 @@ export default {
 <style scoped>
 .cities {
   height: 3.4rem;
+}
+.avatar {
+  height: 100%;
+  object-fit: cover;
 }
 .title {
   height: 4rem;
