@@ -1,0 +1,10 @@
+{
+  "date": "2020-10-17T12:04:14.346Z",
+  "start": "2020-10-17T07:05:00.000Z",
+  "end": "2020-10-17T07:35:00.000Z",
+  "title": "Going Serverless with Knative and Cloudrun",
+  "cities": "GDG Cloud Jakarta",
+  "speakers": [
+    "Randy Gupta"
+  ]
+}
