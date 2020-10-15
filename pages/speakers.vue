@@ -42,6 +42,21 @@ export default {
   },
   async asyncData ({ $content }) {
     const items = await $content('speakers').fetch()
+    items.sort((a, b) => {
+      if (a.cities < b.cities) {
+        return -1
+      }
+      if (a.cities > b.cities) {
+        return 1
+      }
+      if (a.name < b.name) {
+        return -1
+      }
+      if (a.name > b.name) {
+        return 1
+      }
+      return 0
+    })
     return {
       items
     }
