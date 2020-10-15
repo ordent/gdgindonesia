@@ -93,6 +93,9 @@
 
 <script>
 import ScheduleItem from '~/components/ScheduleItem.vue'
+const convertTimezone = (date) => {
+  return new Date(Date.parse(date)).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
+}
 export default {
   components: {
     ScheduleItem
@@ -101,39 +104,43 @@ export default {
     const items = await $content('schedules').fetch()
     const schedules = {}
     schedules.OCT15 = items.filter((e) => {
-      const date = new Date(e.date).getDate()
+      const data = convertTimezone(e.date)
+      const date = new Date(data).getDate()
       return date === 15
     })
     schedules.OCT16 = items.filter((e) => {
-      const date = new Date(e.date).getDate()
+      const data = convertTimezone(e.date)
+      const date = new Date(data).getDate()
       return date === 16
     })
     schedules.OCT17 = items.filter((e) => {
-      const date = new Date(e.date).getDate()
+      const data = convertTimezone(e.date)
+      const date = new Date(data).getDate()
       return date === 17
     })
     schedules.OCT18 = items.filter((e) => {
-      const date = new Date(e.date).getDate()
+      const data = convertTimezone(e.date)
+      const date = new Date(data).getDate()
       return date === 18
     })
     schedules.OCT15 = schedules.OCT15.map((e) => {
-      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       return e
     })
     schedules.OCT16 = schedules.OCT16.map((e) => {
-      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       return e
     })
     schedules.OCT17 = schedules.OCT17.map((e) => {
-      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       return e
     })
     schedules.OCT18 = schedules.OCT18.map((e) => {
-      e.start = `${new Date(e.start).getHours().toString().padStart(2, '0')}:${new Date(e.start).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(e.end).getHours().toString().padStart(2, '0')}:${new Date(e.end).getMinutes().toString().padStart(2, '0')}`
+      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       return e
     })
     return {
