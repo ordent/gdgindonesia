@@ -67,19 +67,27 @@ export default {
 }
 .text {
   color: #1abc9c;
-  font-size: 40px;
+  font-size: 12px;
   font-family: 'Roboto Condensed', serif;
   font-weight: 400;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
 }
 .digit {
   color: #ecf0f1;
-  font-size: 150px;
+  font-size: 48px;
   font-weight: 100;
   font-family: 'Roboto', serif;
   margin: 10px;
   text-align: center;
+}
+@media(min-width: 1024px){
+  .text {
+    font-size: 40px;
+  }
+  .digit {
+    font-size: 150px;
+  }
 }
 </style>
