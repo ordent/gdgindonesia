@@ -9,7 +9,7 @@
                 DevFest Indonesia 2020
               </h1>
               <h2 class="text-xl my-4">
-                <calendar-icon class="w-4" /> October 15-18, 2020 |  <online-icon class="w-4" /> Online
+                <calendar-icon class="w-4 inline" /> October 15-18, 2020 |  <online-icon class="w-4 inline" /> Online
               </h2>
               <p class="mb-4">
                 The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
