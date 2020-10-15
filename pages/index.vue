@@ -81,17 +81,40 @@
           <span class="text-blue-700 text-5xl">20k+</span> Registrations
         </div>
       </section> -->
-      <!-- <section class="flex flex-col md:flex-row">
+      <section class="flex flex-col md:flex-row">
         <div class="w-1/5 p-4">
           <h1 class="text-2xl mb-4">
             DevFest Moments
           </h1>
           <p>The DevFest is powered by a shared belief that when developers come together to exchange ideas, amazing things can happen! And here are our community trails having tons of amazing people, sessions, knowledge and just that spirit.</p>
         </div>
-        <div class="w-4/5 p-4">
-          picture
+        <div class="w-4/5 p-4 flex flex-row flex-wrap">
+          <iframe
+            class="w-1/2"
+            height="315"
+            src="https://www.youtube.com/embed/7BqKlQc6-Qc"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+          <iframe
+            class="w-1/2"
+            height="315"
+            src="https://www.youtube.com/embed/dTwbAhRTl7o"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+          <iframe
+            class="w-1/2"
+            height="315"
+            src="https://www.youtube.com/embed/behRbX0zJxI"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
         </div>
-      </section> -->
+      </section>
     </div>
   </div>
 </template>
