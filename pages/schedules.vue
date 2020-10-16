@@ -47,20 +47,19 @@
               {{ item.title }}
             </h1>
             <p>{{ item.description }}</p>
-            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
-              {{ i }}
+            <div class="information-speakers flex flex-col md:flex-row">
+              <schedule-speaker-item v-for="(i, j) in item.speakers" :key="j" :item="i" />
             </div>
           </schedule-item>
         </div>
         <div v-if="page === 16" class="content-16">
-          <!-- {{ schedules }} -->
           <schedule-item v-for="(item, index) in schedules.OCT16" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT16.length - 1">
             <h1 class="font-semibold">
               {{ item.title }}
             </h1>
             <p>{{ item.description }}</p>
-            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
-              {{ i }}
+            <div class="information-speakers flex flex-col md:flex-row">
+              <schedule-speaker-item v-for="(i, j) in item.speakers" :key="j" :item="i" />
             </div>
           </schedule-item>
         </div>
@@ -70,8 +69,8 @@
               {{ item.title }}
             </h1>
             <p>{{ item.description }}</p>
-            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
-              {{ i }}
+            <div class="information-speakers flex flex-col md:flex-row">
+              <schedule-speaker-item v-for="(i, j) in item.speakers" :key="j" :item="i" />
             </div>
           </schedule-item>
         </div>
@@ -81,8 +80,8 @@
               {{ item.title }}
             </h1>
             <p>{{ item.description }}</p>
-            <div v-for="(i, j) in item.speakers" :key="j" class="inline-block text-sm p-2 bg-blue-400 text-white mr-4">
-              {{ i }}
+            <div class="information-speakers flex flex-col md:flex-row">
+              <schedule-speaker-item v-for="(i, j) in item.speakers" :key="j" :item="i" />
             </div>
           </schedule-item>
         </div>
@@ -93,6 +92,7 @@
 
 <script>
 import ScheduleItem from '~/components/ScheduleItem.vue'
+import ScheduleSpeakerItem from '~/components/ScheduleSpeakerItem.vue'
 const convertTimezone = (date) => {
   return new Date(Date.parse(date)).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
 }
@@ -101,10 +101,12 @@ const compareStart = (a, b) => {
 }
 export default {
   components: {
-    ScheduleItem
+    ScheduleItem,
+    ScheduleSpeakerItem
   },
   async asyncData ({ $content }) {
     const items = await $content('schedules').fetch()
+    const speakers = await $content('speakers').fetch()
     const schedules = {}
     schedules.OCT15 = items.filter((e) => {
       const data = convertTimezone(e.date)
@@ -130,24 +132,32 @@ export default {
     schedules.OCT15 = schedules.OCT15.map((e) => {
       e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
       e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      e.speakers = e.speakers.map(f =>
+        speakers.find(g => g.name === f))
       return e
     })
     schedules.OCT16.sort(compareStart)
     schedules.OCT16 = schedules.OCT16.map((e) => {
       e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
       e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      e.speakers = e.speakers.map(f =>
+        speakers.find(g => g.name === f))
       return e
     })
     schedules.OCT17.sort(compareStart)
     schedules.OCT17 = schedules.OCT17.map((e) => {
       e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
       e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      e.speakers = e.speakers.map(f =>
+        speakers.find(g => g.name === f))
       return e
     })
     schedules.OCT18.sort(compareStart)
     schedules.OCT18 = schedules.OCT18.map((e) => {
       e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
       e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      e.speakers = e.speakers.map(f =>
+        speakers.find(g => g.name === f))
       return e
     })
     return {
