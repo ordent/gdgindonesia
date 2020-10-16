@@ -1,15 +1,15 @@
 <template>
   <div class="is-page-wrapper">
     <div class="container">
-      <section class="w-full mb-32 mt-16">
+      <section class="w-full mb-20 mt-16">
         <div class="container">
           <div class="flex justify-between flex-col lg:flex-row items-center w-full md:w-3/4 mx-auto">
             <div class="section-left px-4 order-last flex-1 event-info">
               <h1 class="text-3xl font-bold">
-                DevFest Indonesia 2020
+                <span class="mr-2 bg-red-600 text-white px-2">DevFest</span><span class="text-red-600">Indonesia</span> 2020
               </h1>
-              <h2 class="text-xl my-4">
-                <calendar-icon class="w-4 inline" /> October 15-18, 2020 |  <online-icon class="w-4 inline" /> Online
+              <h2 class="text-xl my-4 flex items-center">
+                <calendar-icon class="w-4 inline mr-2" /> October 15-18, 2020 |  <online-icon class="w-4 inline mr-2 text-red-600" /> Online
               </h2>
               <p class="mb-4">
                 The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
@@ -17,12 +17,18 @@
               <p class="mb-4">
                 DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
               </p>
-              <button class="btn bg-blue-600 text-white py-2 px-8 border-none rounded">
-                Register
-              </button>
             </div>
             <div class="section-right-and-top px-4 lg:order-last flex-1">
               <img src="https://developers.google.com/community/gdg/images/stories/devfest-logo_1440.jpg" alt="" class="w-full">
+            </div>
+          </div>
+          <div class="container flex justify-center">
+            <div class="container-registration-url flex flex-col md:flex-row justify-center items-center">
+              <a v-for="(item, index) in registrations" :key="index" :href="item.gdgurl" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
+                <div class="gdg-logo flex flex-row items-center">
+                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>{{ item.cities }}</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -66,44 +72,6 @@
           </a>
         </section>
       </section>
-      <!-- <section class=" mb-4 flex flex-col justify-between md:flex-row">
-        <section class="w-full md:w-1/5 p-4">
-          <h2 class="text-2xl mb-4">
-            Explore Tracks
-          </h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet repellat sed magni vel, aspernatur eveniet consequatur inventore nobis quis quos beatae quisquam voluptates quod dolores, officia et, nihil sapiente deserunt!</p>
-        </section>
-        <section class="w-full md:w-4/5 p-4 flex">
-          <div class="border border-gray-500 rounded p-4 m-4 w-1/2">
-            <icon />
-            <h3 class="text-2xl">
-              Title
-            </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut veritatis nobis, earum hic inventore minus officiis repellendus ipsa, error quisquam accusantium harum! Doloremque corporis veniam hic, sunt voluptatibus tenetur?</p>
-          </div>
-          <div class="border border-gray-500 rounded p-4 my-4 w-1/2">
-            <icon />
-            <h3 class="text-2xl">
-              Title
-            </h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut veritatis nobis, earum hic inventore minus officiis repellendus ipsa, error quisquam accusantium harum! Doloremque corporis veniam hic, sunt voluptatibus tenetur?</p>
-          </div>
-        </section>
-      </section>
-      <section class="flex">
-        <div class="w-1/4 flex flex-col justify-center items-center p-4">
-          <span class="text-blue-700 text-5xl">20k+</span> Registrations
-        </div>
-        <div class="w-1/4 flex flex-col justify-center items-center p-4">
-          <span class="text-blue-700 text-5xl">20k+</span> Registrations
-        </div>
-        <div class="w-1/4 flex flex-col justify-center items-center p-4">
-          <span class="text-blue-700 text-5xl">20k+</span> Registrations
-        </div>
-        <div class="w-1/4 flex flex-col justify-center items-center p-4">
-          <span class="text-blue-700 text-5xl">20k+</span> Registrations
-        </div>
-      </section> -->
       <section class="flex flex-col md:flex-row">
         <div class="w-full md:w-1/5 p-4">
           <h1 class="text-2xl mb-4">
@@ -154,19 +122,20 @@ export default {
   },
   async asyncData ({ $content }) {
     const players = await $content('channel').fetch()
+    const temp = await $content('registration').fetch()
+    const registrations = temp.filter((e) => {
+      const date = new Date().getDate()
+      return new Date(e.date).getDate() === date
+    })
     return {
-      players
+      players,
+      registrations
     }
   },
   data () {
     return {
       now: Math.trunc((new Date()).getTime() / 1000)
     }
-  },
-  mounted () {
-    window.setInterval(() => {
-      this.now = Math.trunc((new Date()).getTime() / 1000)
-    }, 1000)
   },
   computed: {
     player () {
@@ -189,6 +158,11 @@ export default {
       }
       return false
     }
+  },
+  mounted () {
+    window.setInterval(() => {
+      this.now = Math.trunc((new Date()).getTime() / 1000)
+    }, 1000)
   },
   head () {
     return {

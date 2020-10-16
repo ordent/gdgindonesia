@@ -43,8 +43,10 @@
       <div class="content mt-8">
         <div v-if="page === 15" class="content-15">
           <schedule-item v-for="(item, index) in schedules.OCT15" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT15.length - 1">
-            <div class="gdg-logo flex flex-row items-center">
-              <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+            <div class="registration-container flex flex-row justify-between items-center">
+              <div class="gdg-logo flex flex-row items-center">
+                <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+              </div>
             </div>
             <h1 class="font-semibold">
               {{ item.title }}
