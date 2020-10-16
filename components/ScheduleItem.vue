@@ -3,11 +3,12 @@
     <div class="w-1/4 md:w-1/5 border-r border-gray-400 flex flex-col p-4">
       <span class="text-xl font-semibold text-right md:text-2xl">{{ start }}</span>
       <span class="text-xl text-right">{{ end }}</span>
+      <span class="text-right">{{ tz }}</span>
     </div>
     <div class="w-3/4 md:w-4/5 p-4">
-      <h2 class="text-2xl">
-        <slot />
-      </h2>
+      <!-- <h2 class="text-2xl"> -->
+      <slot />
+      <!-- </h2> -->
     </div>
   </div>
 </template>
@@ -32,6 +33,11 @@ export default {
       default () {
         return '00:01'
       }
+    }
+  },
+  computed: {
+    tz () {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone
     }
   }
 }

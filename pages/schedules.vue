@@ -108,7 +108,7 @@
 import ScheduleItem from '~/components/ScheduleItem.vue'
 import ScheduleSpeakerItem from '~/components/ScheduleSpeakerItem.vue'
 const convertTimezone = (date) => {
-  return new Date(Date.parse(date)).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' })
+  return new Date(Date.parse(date)).toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })
 }
 const compareStart = (a, b) => {
   return new Date(a.start) - new Date(b.start)
