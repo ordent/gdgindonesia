@@ -61,7 +61,7 @@ collections:
   - name: 'registrations'
     label: 'Registration URL'
     format: 'json'
-    folder: 'content/schedules'
+    folder: 'content/registration'
     create: true
     slug: '{{slug}}'
     editor:
