@@ -180,7 +180,7 @@ export default {
   },
   data () {
     return {
-      page: 15
+      page: new Date().getDate()
     }
   },
   computed: {
