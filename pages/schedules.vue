@@ -43,6 +43,9 @@
       <div class="content mt-8">
         <div v-if="page === 15" class="content-15">
           <schedule-item v-for="(item, index) in schedules.OCT15" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT15.length - 1">
+            <div class="gdg-logo flex flex-row items-center">
+              <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+            </div>
             <h1 class="font-semibold">
               {{ item.title }}
             </h1>
@@ -54,6 +57,9 @@
         </div>
         <div v-if="page === 16" class="content-16">
           <schedule-item v-for="(item, index) in schedules.OCT16" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT16.length - 1">
+            <div class="gdg-logo flex flex-row items-center">
+              <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+            </div>
             <h1 class="font-semibold">
               {{ item.title }}
             </h1>
@@ -65,6 +71,9 @@
         </div>
         <div v-if="page === 17" class="content-17">
           <schedule-item v-for="(item, index) in schedules.OCT17" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT17.length - 1">
+            <div class="gdg-logo flex flex-row items-center">
+              <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+            </div>
             <h1 class="font-semibold">
               {{ item.title }}
             </h1>
@@ -75,6 +84,9 @@
           </schedule-item>
         </div>
         <div v-if="page === 18" class="content-18">
+          <div class="gdg-logo flex flex-row items-center">
+            <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+          </div>
           <schedule-item v-for="(item, index) in schedules.OCT18" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT18.length - 1">
             <h1 class="font-semibold">
               {{ item.title }}
