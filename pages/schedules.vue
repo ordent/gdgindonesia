@@ -84,10 +84,10 @@
           </schedule-item>
         </div>
         <div v-if="page === 18" class="content-18">
-          <div class="gdg-logo flex flex-row items-center">
-            <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
-          </div>
           <schedule-item v-for="(item, index) in schedules.OCT18" :key="index" :start="item.start" :end="item.end" :last="index === schedules.OCT18.length - 1">
+            <div class="gdg-logo flex flex-row items-center">
+              <img src="~/assets/images/logo.png" class="w-8 h-4 mr-2" alt=""><p>{{ item.cities }}</p>
+            </div>
             <h1 class="font-semibold">
               {{ item.title }}
             </h1>
