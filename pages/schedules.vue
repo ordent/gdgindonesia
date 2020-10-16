@@ -107,9 +107,7 @@
 <script>
 import ScheduleItem from '~/components/ScheduleItem.vue'
 import ScheduleSpeakerItem from '~/components/ScheduleSpeakerItem.vue'
-const convertTimezone = (date) => {
-  return new Date(Date.parse(date)).toLocaleString('en-US', { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone })
-}
+
 const compareStart = (a, b) => {
   return new Date(a.start) - new Date(b.start)
 }
@@ -123,53 +121,53 @@ export default {
     const speakers = await $content('speakers').fetch()
     const schedules = {}
     schedules.OCT15 = items.filter((e) => {
-      const data = convertTimezone(e.date)
+      const data = e.date
       const date = new Date(data).getDate()
       return date === 15
     })
     schedules.OCT16 = items.filter((e) => {
-      const data = convertTimezone(e.date)
+      const data = e.date
       const date = new Date(data).getDate()
       return date === 16
     })
     schedules.OCT17 = items.filter((e) => {
-      const data = convertTimezone(e.date)
+      const data = e.date
       const date = new Date(data).getDate()
       return date === 17
     })
     schedules.OCT18 = items.filter((e) => {
-      const data = convertTimezone(e.date)
+      const data = e.date
       const date = new Date(data).getDate()
       return date === 18
     })
     schedules.OCT15.sort(compareStart)
     schedules.OCT15 = schedules.OCT15.map((e) => {
-      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      // // e.start = `${new Date(this.convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      // // e.end = `${new Date(this.convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       e.speakers = e.speakers.map(f =>
         speakers.find(g => g.name === f))
       return e
     })
     schedules.OCT16.sort(compareStart)
     schedules.OCT16 = schedules.OCT16.map((e) => {
-      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      // // e.start = `${new Date(this.convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      // // e.end = `${new Date(this.convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       e.speakers = e.speakers.map(f =>
         speakers.find(g => g.name === f))
       return e
     })
     schedules.OCT17.sort(compareStart)
     schedules.OCT17 = schedules.OCT17.map((e) => {
-      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      // // e.start = `${new Date(this.convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      // // e.end = `${new Date(this.convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       e.speakers = e.speakers.map(f =>
         speakers.find(g => g.name === f))
       return e
     })
     schedules.OCT18.sort(compareStart)
     schedules.OCT18 = schedules.OCT18.map((e) => {
-      e.start = `${new Date(convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
-      e.end = `${new Date(convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
+      // // e.start = `${new Date(this.convertTimezone(e.start)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.start)).getMinutes().toString().padStart(2, '0')}`
+      // // e.end = `${new Date(this.convertTimezone(e.end)).getHours().toString().padStart(2, '0')}:${new Date(this.convertTimezone(e.end)).getMinutes().toString().padStart(2, '0')}`
       e.speakers = e.speakers.map(f =>
         speakers.find(g => g.name === f))
       return e
@@ -184,6 +182,9 @@ export default {
     }
   },
   computed: {
+    getTimezone () {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone
+    }
     // schedules () {
     //   return this.$store.state.schedules.collections
     // }
@@ -192,6 +193,11 @@ export default {
     // if (process.browser) {
     //   this.$store.dispatch('schedules/getCollections')
     // }
+  },
+  methods: {
+    convertTimezone (date) {
+      return new Date(Date.parse(date)).toLocaleString('en-US', { timeZone: this.getTimezone })
+    }
   }
 }
 </script>
