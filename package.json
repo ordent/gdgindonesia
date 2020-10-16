@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "nuxt || npm run functions:start",
-    "build": "npm run nuxt:build || npm run functions:build",
+    "build": "nuxt build",
     "start": "nuxt start",
-    "nuxt:build": "nuxt build",
     "functions:start": "netlify-lambda serve functions",
     "functions:build": "netlify-lambda build functions",
-    "generate": "nuxt generate || npm run functions:build",
+    "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
   },
