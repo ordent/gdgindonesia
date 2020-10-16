@@ -9,7 +9,7 @@
     "nuxt:build": "nuxt build",
     "functions:start": "netlify-lambda serve functions",
     "functions:build": "netlify-lambda build functions",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate || npm run functions:build",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
   },
