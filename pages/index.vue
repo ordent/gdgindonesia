@@ -123,8 +123,7 @@ export default {
     const players = await $content('channel').fetch()
     const temp = await $content('registration').fetch()
     const registrations = temp.filter((e) => {
-      const date = new Date().getDate()
-      return new Date(e.date).getDate() === date
+      return new Date(e.date).getDate() === this.today
     })
     return {
       players,
