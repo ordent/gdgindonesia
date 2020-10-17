@@ -137,11 +137,14 @@ export default {
     }
   },
   computed: {
+    today () {
+      return new Date().getDate()
+    },
     player () {
       if (this.players) {
         const item = this.players.find((e) => {
           const date = new Date(e.date)
-          return date.getDate() === new Date().getDate()
+          return date.getDate() === this.today
         })
         item.embed = item.url.split('v=')[1]
         return item
