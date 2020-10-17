@@ -133,13 +133,11 @@ export default {
   },
   data () {
     return {
-      now: Math.trunc((new Date()).getTime() / 1000)
+      now: Math.trunc((new Date()).getTime() / 1000),
+      today: new Date().getDate()
     }
   },
   computed: {
-    today () {
-      return new Date().getDate()
-    },
     player () {
       if (this.players) {
         const item = this.players.find((e) => {
@@ -164,6 +162,7 @@ export default {
   mounted () {
     window.setInterval(() => {
       this.now = Math.trunc((new Date()).getTime() / 1000)
+      this.today = new Date().getDate()
     }, 1000)
   },
   head () {
