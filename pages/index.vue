@@ -143,7 +143,9 @@ export default {
           const date = new Date(e.date)
           return date.getDate() === this.today
         })
-        item.embed = item.url.split('v=')[1]
+        if (item) {
+          item.embed = item.url.split('v=')[1]
+        }
         return item
       }
       return null
