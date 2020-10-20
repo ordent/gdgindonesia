@@ -57,7 +57,7 @@ collections:
       - { label: 'End', name: 'end', widget: 'datetime', required: false}
       - { label: 'GDGURL', name: 'gdgurl', widget: 'string', required: false}
       - { label: 'URL', name: 'url', widget: 'string', required: false}
-      - { label: 'Speakers', name: 'speakers', widget: 'relation', collection: "speakers", value_field: "name", search_fields: ['name', 'cities'], display_fields: ['name', 'cities'], multiple: true }
+      - { label: 'Speakers', name: 'speakers', widget: 'relation', collection: "speakers", value_field: "name", search_fields: ['name', 'cities'], display_fields: ['name', 'cities'], multiple: true, required: false }
   - name: 'registrations'
     label: 'Registration URL'
     format: 'json'
