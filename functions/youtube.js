@@ -1,16 +1,16 @@
-import axios from 'axios';
+import axios from 'axios'
 
 exports.handler = async (event, _, callback) => {
   const {
     queryStringParameters
-  } = event;
+  } = event
   const {
     video,
     domain
-  } = queryStringParameters;
+  } = queryStringParameters
   const url = `https://www.youtube.com/live_chat?v=${video}&embed_domain=${domain}`
-  const result = await axios.get(url);
-  const headers = { ...result.headers, 'x-frame-options': undefined };
+  const result = await axios.get(url)
+  const headers = { ...result.headers, 'x-frame-options': undefined }
   console.log({
     statusCode: result.status,
     headers,
@@ -18,7 +18,7 @@ exports.handler = async (event, _, callback) => {
   })
   callback(null, {
     statusCode: result.status,
-    headers: headers,
-    body: result.data,
-  });
-};
+    headers,
+    body: result.data
+  })
+}
