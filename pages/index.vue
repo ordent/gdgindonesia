@@ -6,10 +6,10 @@
           <div class="flex justify-between flex-col lg:flex-row items-center w-full md:w-3/4 mx-auto">
             <div class="section-left px-4 order-last flex-1 event-info">
               <h1 class="text-3xl font-bold">
-                <span class="mr-2 bg-red-600 text-white px-2">DevFest</span><span class="text-red-600">Indonesia</span> 2020
+                <span class="mr-2 bg-red-600 text-white px-2">DevFest</span><span class="text-red-600">Indonesia</span> 2020 x Women Techmakers
               </h1>
               <h2 class="text-xl my-4 flex items-center">
-                <calendar-icon class="w-4 inline mr-2" /> October 15-18, 2020 |  <online-icon class="w-4 inline mr-2 text-red-600" /> Online
+                <calendar-icon class="w-4 inline mr-2" /> October 24-25, 2020 |  <online-icon class="w-4 inline mr-2 text-red-600" /> Online
               </h2>
               <p class="mb-4">
                 The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
@@ -17,10 +17,47 @@
               <p class="mb-4">
                 DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
               </p>
+              <img src="/img/agenda-01.jpg" alt="Agenda Day 1">
+              <img src="/img/agenda-02.jpg" alt="Agenda Day 1">
+              <br>
+              <br>
+              <h3><b>Registration:<b /></b></h3>
+              <br>
+              <a href="https://gdg.community.dev/events/details/google-gdg-bandung-presents-devfest-indonesia-2020-x-women-techmakers/" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
+                <div class="gdg-logo flex flex-row items-center">
+                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bandung</p>
+                </div>
+              </a>
+              <a href="https://gdg.community.dev/events/details/google-gdg-bogor-presents-women-techmakers-weekend/#/" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
+                <div class="gdg-logo flex flex-row items-center">
+                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bogor</p>
+                </div>
+              </a>
+              <p class="mb-4 text-sm">
+                *If your city is not listed above, you can choose closest city from your place.
+              </p>
             </div>
-            <div class="section-right-and-top px-4 lg:order-last flex-1">
+          </div>
+          <br>
+          <div class="flex justify-between flex-col lg:flex-row items-center w-full md:w-3/4 mx-auto">
+            <div class="section-left px-4 order-last flex-1 event-info">
+              <!-- <h1 class="text-3xl font-bold">
+                <span class="mr-2 bg-red-600 text-white px-2">DevFest</span><span class="text-red-600">Indonesia</span> 2020
+              </h1> -->
+              <h2 class="text-xl my-4 flex items-center">
+                <calendar-icon class="w-4 inline mr-2" /> Past Events: October 15-18, 2020 |  <online-icon class="w-4 inline mr-2 text-red-600" /> Online
+              </h2>
+              <a class="event-link" href="https://www.youtube.com/watch?v=xlSjcyKf_ew">Day 1</a> | <a class="event-link" href="https://www.youtube.com/watch?v=wyeCZtpB6uI">Day 2</a> | <a class="event-link" href="https://www.youtube.com/watch?v=dRkOY8wi9SE">Day 3</a> | <a class="event-link" href="https://www.youtube.com/watch?v=lLxly1xNYxA">Day 4</a>
+              <!-- <p class="mb-4">
+                The world is changing and with it our developer ecosystem. Are you ready for DevFest ID 2020?
+              </p>
+              <p class="mb-4">
+                DevFest 2020 brings together thousands of developers globally for the largest virtual weekend of community-led technical learning and a shared passion for Google technologies on Oct 15-18. The magic of DevFest has always come from the people involved - developers from all different backgrounds and skill levels. For DevFest 2020, Google Developer Groups are coming together in a whole new way - virtually over one weekend. This global moment empowers developers to teach, learn, and connect when they may need it the most.
+              </p> -->
+            </div>
+            <!-- <div class="section-right-and-top px-4 lg:order-last flex-1">
               <img src="https://developers.google.com/community/gdg/images/stories/devfest-logo_1440.jpg" alt="" class="w-full">
-            </div>
+            </div> -->
           </div>
           <div class="container flex justify-center">
             <div class="container-registration-url flex flex-col md:flex-row justify-center items-center">
@@ -181,6 +218,11 @@ export default {
 .video-embed{
   min-height: 320px;
 }
+
+.event-link{
+  text-decoration: underline;
+}
+
 @media(min-width: 767px){
   .video-embed{
     min-height: 640px;
