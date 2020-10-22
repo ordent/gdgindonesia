@@ -33,8 +33,13 @@
                   Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bogor</p>
                 </div>
               </a>
-              <p class="mb-4 text-sm">
-                *If your city is not listed above, you can choose closest city from your place.
+              <a href="https://gdg.community.dev/events/details/google-gdg-surabaya-presents-wtm-weekend/#" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
+                <div class="gdg-logo flex flex-row items-center">
+                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Surabaya</p>
+                </div>
+              </a>
+              <p class="mb-4 text-sm py-4">
+                Note: If your city is not listed above, you can choose closest city from your place.
               </p>
             </div>
           </div>
