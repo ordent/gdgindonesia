@@ -19,31 +19,34 @@
               </p>
               <img src="/img/agenda-01.jpg" alt="Agenda Day 1">
               <img src="/img/agenda-02.jpg" alt="Agenda Day 1">
-              <br>
-              <br>
-              <h3><b>Registration:<b /></b></h3>
-              <br>
-              <a href="https://gdg.community.dev/events/details/google-gdg-bandung-presents-devfest-indonesia-2020-x-women-techmakers/" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
-                <div class="gdg-logo flex flex-row items-center">
-                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bandung</p>
-                </div>
-              </a>
-              <a href="https://gdg.community.dev/events/details/google-gdg-bogor-presents-women-techmakers-weekend/#/" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
-                <div class="gdg-logo flex flex-row items-center">
-                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bogor</p>
-                </div>
-              </a>
-              <a href="https://gdg.community.dev/events/details/google-gdg-surabaya-presents-wtm-weekend/#" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 md:mb-0">
-                <div class="gdg-logo flex flex-row items-center">
-                  Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Surabaya</p>
-                </div>
-              </a>
-              <p class="mb-4 text-sm py-4">
-                Note: If your city is not listed above, you can choose closest city from your place.
-              </p>
             </div>
           </div>
-          <br>
+          <div class="w-full mx-auto md:w-3/4 py-8 px-4">
+            <h3><b>Registration:</b></h3>
+            <a href="https://gdg.community.dev/events/details/google-gdg-bandung-presents-devfest-indonesia-2020-x-women-techmakers/" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bandung</p>
+              </div>
+            </a>
+            <a href="https://gdg.community.dev/events/details/google-gdg-bogor-presents-women-techmakers-weekend/#/" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mb-4 mt-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Bogor</p>
+              </div>
+            </a>
+            <a href="https://gdg.community.dev/events/details/google-gdg-cloud-bandung-presents-devfest-indonesia-2020-x-women-techmakers/#/" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Cloud Bandung</p>
+              </div>
+            </a>
+            <a href="https://gdg.community.dev/events/details/google-gdg-surabaya-presents-wtm-weekend/#" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Surabaya</p>
+              </div>
+            </a>
+            <p class="mb-4 text-sm py-4">
+              Note: If your city is not listed above, you can choose closest city from your place.
+            </p>
+          </div>
           <div class="flex justify-between flex-col lg:flex-row items-center w-full md:w-3/4 mx-auto">
             <div class="section-left px-4 order-last flex-1 event-info">
               <!-- <h1 class="text-3xl font-bold">
