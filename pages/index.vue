@@ -38,9 +38,24 @@
                 Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Cloud Bandung</p>
               </div>
             </a>
+            <a href="https://gdg.community.dev/events/details/google-gdg-depok-presents-women-techmakers-weekend/#/" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Depok</p>
+              </div>
+            </a>
+            <a href="https://gdg.community.dev/events/details/google-gdg-semarang-presents-wtm-weekend/#/" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Semarang</p>
+              </div>
+            </a>
             <a href="https://gdg.community.dev/events/details/google-gdg-surabaya-presents-wtm-weekend/#" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
               <div class="gdg-logo flex flex-row items-center">
                 Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Surabaya</p>
+              </div>
+            </a>
+            <a href="https://gdg.community.dev/events/details/google-gdg-jogjakarta-presents-wtm-weekend/#/" target="_blank" class="btn py-4 px-8 rounded mr-2 inline-block border border-grey-600 shadow mt-4 mb-4 md:mb-0">
+              <div class="gdg-logo flex flex-row items-center">
+                Register <img src="~/assets/images/logo.png" class="w-8 h-4 mx-2" alt=""><p>Yogyakarta</p>
               </div>
             </a>
             <p class="mb-4 text-sm py-4">
